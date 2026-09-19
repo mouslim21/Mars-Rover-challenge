@@ -21,4 +21,4 @@ jobs:
           python-version: "3.11"
 
       - name: Run tests
-        run: pyton3 rover.py input.txt
+        run: python3 rover.py input.txt
