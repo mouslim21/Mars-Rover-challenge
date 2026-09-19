@@ -1,21 +1,21 @@
 # Mars Rover Kata
 
-Solution Python au kata **Mars Rover** de NASA : un ensemble de rovers robotiques doit explorer un plateau rectangulaire sur Mars, en suivant des instructions de déplacement.
+Python solution to the **Mars Rover** kata: a squad of robotic rovers must explore a rectangular plateau on Mars, following movement instructions.
 
-## Description du problème
+## Problem Description
 
-Un rover est défini par :
-- Une position `(x, y)` sur une grille
-- Une direction cardinale : `N`, `S`, `E` ou `W`
+A rover is defined by:
+- A position `(x, y)` on a grid
+- A cardinal direction: `N`, `S`, `E`, or `W`
 
-Les instructions envoyées à un rover sont une chaîne de caractères composée de :
-- `L` : tourner de 90° à gauche (sans se déplacer)
-- `R` : tourner de 90° à droite (sans se déplacer)
-- `M` : avancer d'une case dans la direction actuelle
+Instructions sent to a rover are a string made up of:
+- `L`: turn 90° left (without moving)
+- `R`: turn 90° right (without moving)
+- `M`: move forward one grid point in the current direction
 
-Les rovers sont traités **séquentiellement** : le rover suivant ne bouge qu'une fois que le précédent a terminé toutes ses instructions.
+Rovers are processed **sequentially**: the next rover doesn't start moving until the previous one has finished all its instructions.
 
-## Format du fichier d'entrée
+## Input File Format
 
 ```
 5 5
@@ -25,31 +25,31 @@ LMLMLMLMM
 MMRMMRMRRM
 ```
 
-- La première ligne donne les coordonnées du coin supérieur droit du plateau (le coin inférieur gauche est toujours `0 0`).
-- Chaque rover est décrit par deux lignes : sa position/direction de départ, puis sa chaîne d'instructions.
+- The first line gives the upper-right coordinates of the plateau (the lower-left corner is always `0 0`).
+- Each rover is described by two lines: its starting position/direction, followed by its instruction string.
 
-## Exécution
+## Usage
 
 ```bash
 python3 rover.py input.txt
 ```
 
-### Exemple de sortie
+### Example Output
 
 ```
 1 3 N
 5 1 E
 ```
 
-## Structure du projet
+## Project Structure
 
 ```
 Mars-Rover-challenge/
 ├── README.md
-├── rover.py       # Solution complète (parsing + simulation)
-└── input.txt      # Exemple de fichier d'entrée
+├── rover.py       # Full solution (parsing + simulation)
+└── input.txt      # Sample input file
 ```
 
-## Comportement aux limites
+## Boundary Behavior
 
-Si une instruction `M` ferait sortir un rover du plateau, le déplacement est simplement ignoré : le rover reste sur sa case actuelle (l'énoncé ne précisant pas ce cas, ce choix a été fait pour éviter tout comportement indéfini).
+If an `M` instruction would move a rover off the plateau, the move is simply ignored: the rover stays at its current position. Since the specification doesn't define this case explicitly, this choice was made to avoid undefined behavior.
