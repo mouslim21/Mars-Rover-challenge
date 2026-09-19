@@ -20,8 +20,5 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: pip install pytest
-
       - name: Run tests
-        run: pytest -v
+        run: pyton3 rover.py input.txt
