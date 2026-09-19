@@ -133,7 +133,27 @@ def deplacer_rover(position, instructions, max_x, max_y):
 
     return x, y, direction
 
+def deplacer_rover_recursif(position, instructions, max_x, max_y):
+    """
+    Recursive version: processes one instruction character at a time,
+    then recurses on the rest of the string.
+    """
+    x, y, direction = position
 
+    # Base case: no more instructions left
+    if not instructions:
+        return x, y, direction
+
+    commande = instructions[0]
+    reste = instructions[1:]
+
+    if commande in ("L", "R"):
+        direction = tourner(direction, commande)
+    elif commande == "M":
+        x, y = avancer(x, y, direction, max_x, max_y)
+
+    return deplacer_rover_recursif((x, y, direction), reste, max_x, max_y)
+    
 # ---------------------------------------------------------------------------
 # MAIN PROGRAM
 # ---------------------------------------------------------------------------
